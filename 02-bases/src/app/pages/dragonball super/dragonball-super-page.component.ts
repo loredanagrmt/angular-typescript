@@ -1,6 +1,7 @@
 import { NgClass } from "@angular/common";
 import { Component, computed, signal } from "@angular/core";
 import { RouterLink, RouterLinkActive } from "@angular/router";
+import { CharacterListComponent } from "../../components/dragonball/character-list.component/character-list.component";
 
 interface Character {
   id: number,
@@ -10,14 +11,15 @@ interface Character {
 
 @Component({
   templateUrl: './dragonball-super-page.component.html',
-  selector: 'dragonball-super'
+  selector: 'dragonball-super',
+  imports: [CharacterListComponent]
 })
 
 
 export class DragonballSuperPageComponent {
 
-  name = signal('Gohan')
-  power = signal(100)
+  name = signal('Nombre')
+  power = signal(0)
 
   characters = signal<Character[]>([
     { id: 1, name: 'Goku', power: 9001 },
