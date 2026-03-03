@@ -1,26 +1,26 @@
 import { effect, Injectable, signal } from '@angular/core';
-import { Character } from '../interfaces/character.interface';
+import { Contacto } from '../interfaces/contacto.interface';
 
-const loadFromLocalStorage = (): Character[] => {
+const loadFromLocalStorage = (): Contacto[] => {
 
-  const characters = localStorage.getItem('characters');
+  const contactos = localStorage.getItem('contactos');
 
-  return characters ? JSON.parse(characters) : [];
+  return contactos ? JSON.parse(contactos) : [];
 }
 
 @Injectable({ providedIn: 'root' })
-export class DragonballService {
+export class ContactoService {
 
-  characters = signal<Character[]>(loadFromLocalStorage());
+  contactos = signal<Contacto[]>(loadFromLocalStorage());
 
   saveToLocalStorage = effect(() => {
-    /* console.log(`Character count ${this.characters().length}`);  */
-    localStorage.setItem('characters', JSON.stringify(this.characters()))
+    /* console.log(`Contacto count ${this.contactos().length}`);  */
+    localStorage.setItem('contactos', JSON.stringify(this.contactos()))
   })
 
-  addCharacter(character: Character) {
-    this.characters.update(
-      list => [...list, character]
+  addContacto(contacto: Contacto) {
+    this.contactos.update(
+      list => [...list, contacto]
     )
   }
 

@@ -1,35 +1,20 @@
-<h1> DragoBall Page</h1>
+<style>
+  h1 {
+    font-size: 35px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 100;
+  }
+
+  div {
+    font-size: 16px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 90;
+  }
+</style>
+
+<h1> Lista de contactos</h1>
 <hr />
 
-<section class="row">
-
-  <div class="col-12 col-sm-6">
-    <h3>Agregar: {{name()}}</h3>
-    <input type="text" class="form-control" placeholder="Nombre" [value]="name()" (change)="name.set(txtName.value)"
-      (input)="name.set(txtName.value)" #txtName>
-
-    <input type="number" class="form-control mt-2" placeholder="Poder" [value]="power()"
-      (change)="power.set(+txtPower.value)" (input)="power.set(+txtPower.value)" #txtPower>
-
-    <button (click)="addContacto()" class="mt-2 btn btn-primary">Agregar</button>
-
-  </div>
-
-  <div class="col-12 col-sm-6">
-    <h3>Listado fuerte</h3>
-    <ul>
-      @for (contacto of contactos(); track contacto.id; let idx = $index){
-      @if(contacto.power>500){
-      <li>
-        <span> {{ idx +1 }} - {{contacto.name}}</span>
-        <!-- <strong [ngClass]="powerClasses()"  > ({{contacto.power}})</strong> -->
-        <strong [class.text-danger]="contacto.power >= 9000" [class.text-info]="contacto.power < 9000">
-          ({{ contacto.power }})</strong>
-      </li>
-      }@else {
-      <li><strong>Aquí no hay nadie</strong></li>}
-      }
-    </ul>
-  </div>
-
-</section>
+<div>
+  <contacto-contacto-list listName="Listado de personajes" [contactos]="ContactoService.contactos()" />
+</div>

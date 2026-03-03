@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, output, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, output, signal } from '@angular/core';
 import { Contacto } from '../../../interfaces/contacto.interface';
 
 @Component({
@@ -9,20 +9,25 @@ import { Contacto } from '../../../interfaces/contacto.interface';
 
 })
 export class ContactoAddComponent {
-  name = signal('Nombre')
-  power = signal(0)
+
+  contactos = input<Contacto[]>([]);
+
+  name = signal('')
+  phone = signal(0)
+  email=signal('')
 
   newContacto = output<Contacto>()
 
   addContacto() {
-    if (!this.name() || !this.power() || this.power() <= 0) {
+    if (!this.name() || !this.phone() || this.phone() <= 0 || !this.email) {
       return;
     }
 
     const newContacto: Contacto = {
       id: Math.floor(Math.random() * 1000),
       name: this.name(),
-      power: this.power(),
+      phone: this.phone(),
+      email: this.email(),
     };
 
     /* this.Contactos.update((list)=> [... list, newContacto]); */
@@ -33,7 +38,8 @@ export class ContactoAddComponent {
 
   resetFields() {
     this.name.set(''),
-    this.power.set(0)
+    this.phone.set(0),
+    this.email.set('')
   }
 
 }

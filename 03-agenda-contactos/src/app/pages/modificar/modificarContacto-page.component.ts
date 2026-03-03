@@ -2,12 +2,12 @@ import { UpperCasePipe } from "@angular/common";
 import { ChangeDetectionStrategy, Component, computed, signal } from "@angular/core";
 
 @Component({
-  templateUrl: `./hero-page.component.html`,
+  templateUrl: `./modificarContacto-page.component.html`,
   imports:[UpperCasePipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
-export class HeroPagesComponent {
+export class ModificarPagesComponent {
 
   nameSignal = signal('Ironman');
   ageSignal = signal(45);

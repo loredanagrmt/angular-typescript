@@ -2,9 +2,10 @@
   nav{
     display: flex;
     justify-content: space-around;
-    background-color: #212121;
+    background-color: #df98c1;
     color: white;
-    padding: 10px;
+    padding: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
 
   nav a{
@@ -13,16 +14,16 @@
   }
 
   nav a.active{
-    color: red;
+    color:white;
+    text-decoration:underline;
   }
 </style>
 
 <nav>
 
-<a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Contador</a>
-<a [routerLink]="['/hero']" [routerLinkActive]="'active'">Hero</a>
-<a [routerLink]="['/contacto']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}">DragoBall</a>
-<a [routerLink]="['/contacto-super']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}">DragoBall Super</a>
+<a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Listado</a>
+<a [routerLink]="['/nuevo-contacto']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}">Nuevo contacto</a>
+<a [routerLink]="['/modificar-contacto']" [routerLinkActive]="'active'">Modificar contacto</a>
 
 
 </nav>

@@ -1,14 +1,29 @@
-<h3>{{listName()}}</h3>
+<style>
+  ol{
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 100;
+  }
+</style>
+
+<ol>
+  @for (contacto of contactos(); track contacto.id; let idx = $index){
+  <li>
+
+    <span> {{contacto.name}}</span>
+    <!-- <strong [ngClass]="phoneClasses()"  > ({{contacto.phone}})</strong> -->
+
     <ul>
-      @for (contacto of contactos(); track contacto.id; let idx = $index){
-      @if(contacto.power>500){
       <li>
-        <span> {{ idx +1 }} - {{contacto.name}}</span>
-        <!-- <strong [ngClass]="powerClasses()"  > ({{contacto.power}})</strong> -->
-        <strong [class.text-danger]="contacto.power >= 9000" [class.text-info]="contacto.power < 9000">
-          ({{ contacto.power }})</strong>
+        Numero telefonico:  {{ contacto.phone }}
       </li>
-      }@else {
-      <li><strong>Aquí no hay nadie</strong></li>}
-      }
+       <li>
+        Correo electronico:  {{ contacto.email }}
+      </li>
+
     </ul>
+  </li>
+  <br>
+  
+  }
+</ol>

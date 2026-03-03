@@ -1,57 +1,20 @@
 import { NgClass } from "@angular/common";
-import { Component, computed, signal } from "@angular/core";
+import { Component, computed, inject, signal } from "@angular/core";
 import { RouterLink, RouterLinkActive } from "@angular/router";
+import { ContactoListComponent } from "../../components/contacto/contacto-list.component/contacto-list.component";
+import { ContactoService } from "../../services/contacto.service";
 
-interface Contacto {
-  id: number,
-  name: string,
-  power: number,
-}
+import { ContactoAddComponent } from "../../components/contacto/contacto-add.component/contacto-add.component";
 
 @Component({
-
-  imports: [RouterLink, RouterLinkActive, NgClass],
-  templateUrl: './dragonball-page.component.html',
+  templateUrl: './listadoContacto-page.component.html',
+  selector: 'listarContacto-page',
+  imports: [ContactoListComponent],
 })
 
 
-export class DragonballPageComponent {
+export class listadoContactoPageComponent {
 
-  name = signal('')
-  power = signal(0)
-
-  contactos = signal<Contacto[]>([
-    { id: 1, name: 'Goku', power: 9001 },/*
-    { id: 2, name: 'Vegeta', power: 9000 },
-    { id: 4, name: 'Yamcha', power: 500 },
-    { id: 3, name: 'Piccolo', power: 7098 }, */
-  ]);
-
-  /* powerClasses= computed(()=>{
-    return{
-      'text-danger': true,
-    };
-  }); */
-
-  addContacto() {
-    if (!this.name() || !this.power() || this.power() <= 0) {
-      return;
-    }
-
-    const newContacto: Contacto = {
-      id: this.contactos().length + 1,
-      name: this.name(),
-      power: this.power(),
-    };
-
-    this.contactos.update((list)=> [... list, newContacto]);
-    this.resetFields();
-
-  }
-
-  resetFields(){
-    this.name.set(''),
-    this.power.set(0)
-  }
+  public ContactoService= inject(ContactoService)
 
 }

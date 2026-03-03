@@ -2,18 +2,18 @@ import { Component, computed, inject, signal } from "@angular/core";
 import { ContactoListComponent } from "../../components/contacto/contacto-list.component/contacto-list.component";
 import { ContactoAddComponent } from "../../components/contacto/contacto-add.component/contacto-add.component";
 import { Contacto } from "../../interfaces/contacto.interface";
-import { DragonballService } from '../../services/contacto.service';
+import { ContactoService } from '../../services/contacto.service';
 
 
 @Component({
-  templateUrl: './dragonball-super-page.component.html',
-  selector: 'dragonball-super',
-  imports: [ContactoListComponent, ContactoAddComponent]
+  templateUrl: './nuevoContacto-super-page.component.html',
+  selector: 'nuevoContacto-super',
+  imports: [ContactoAddComponent]
 })
 
 
-export class DragonballSuperPageComponent {
+export class NuevoSuperPageComponent {
 
-  public DragonballService= inject(DragonballService)
+  public ContactoService= inject(ContactoService)
 
 }
