@@ -4,16 +4,31 @@
     font-weight: 100;
   }
 
-  button, input{
+  input {
+    width: 98.8%;
+    margin-bottom: 12px;
+    padding: 10px;
+    font-size: 16px;
+    justify-content: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 15px;
+    border-style: double;
+    /* margin:0 auto; */
+  }
+
+  button {
     width: 100%;
     margin-bottom: 12px;
     padding: 10px;
     font-size: 16px;
     justify-content: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #df98c1;
+    color: white;
+    border-color: white;
+    border-radius: 15px;
+    margin:0 auto;
   }
-
-
 </style>
 
 <h3>Completa los siguientes datos</h3>
@@ -28,7 +43,7 @@
   <input type="email" class="form-control" placeholder="Email" [value]="email()" (input)="email.set(txtEmail.value)"
     #txtEmail>
 
-  <button (click)="addContacto()" >
+  <button (click)="addContacto()">
     Agregar
   </button>
 </div>

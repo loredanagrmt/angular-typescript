@@ -13,7 +13,7 @@ export const routes: Routes = [
     component: NuevoSuperPageComponent,
   },
   {
-    path: 'modificar-contacto',
+    path: 'modificar-contacto/:id',
     component: ModificarPagesComponent,
   }
 ];

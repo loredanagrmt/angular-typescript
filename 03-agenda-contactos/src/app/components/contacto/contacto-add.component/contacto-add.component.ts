@@ -14,12 +14,12 @@ export class ContactoAddComponent {
 
   name = signal('')
   phone = signal(0)
-  email=signal('')
+  email = signal('')
 
   newContacto = output<Contacto>()
 
   addContacto() {
-    if (!this.name() || !this.phone() || this.phone() <= 0 || !this.email) {
+    if (!this.name() || !this.phone() || this.phone() <= 0 || !this.email()) {
       return;
     }
 
@@ -38,8 +38,8 @@ export class ContactoAddComponent {
 
   resetFields() {
     this.name.set(''),
-    this.phone.set(0),
-    this.email.set('')
+      this.phone.set(0),
+      this.email.set('')
   }
 
 }
