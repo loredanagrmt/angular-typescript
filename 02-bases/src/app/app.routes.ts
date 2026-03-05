@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
 import { CounterPageComponent } from './pages/counter/counter-page.component';
-import { HeroPagesComponent } from './pages/hero/hero-page.component';
+import { HeroPagesComponent } from './pages/modificar/hero-page.component';
 import { Component } from '@angular/core';
-import { DragonballPageComponent } from './pages/dragonball/dragonball-page.component';
-import { DragonballSuperPageComponent } from './pages/dragonball super/dragonball-super-page.component';
+import { DragonballPageComponent } from './pages/listado/dragonball-page.component';
+import { DragonballSuperPageComponent } from './pages/nuevo/dragonball-super-page.component';
 export const routes: Routes = [
 
 {
