@@ -27,4 +27,8 @@ export class ContactoService {
     )
   }
 
+  buscarContacto(buscarId: number){
+    return this.contactos().find(i => i.id === buscarId);
+  }
+
 }
