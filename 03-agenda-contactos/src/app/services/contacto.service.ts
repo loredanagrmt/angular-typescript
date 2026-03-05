@@ -1,5 +1,6 @@
 import { effect, Injectable, signal } from '@angular/core';
 import { Contacto } from '../interfaces/contacto.interface';
+import { BehaviorSubject } from 'rxjs';
 
 const loadFromLocalStorage = (): Contacto[] => {
 
@@ -12,6 +13,8 @@ const loadFromLocalStorage = (): Contacto[] => {
 export class ContactoService {
 
   contactos = signal<Contacto[]>(loadFromLocalStorage());
+
+  datosCompartidos = signal<string>('Datos iniciales...');
 
   saveToLocalStorage = effect(() => {
     /* console.log(`Contacto count ${this.contactos().length}`);  */

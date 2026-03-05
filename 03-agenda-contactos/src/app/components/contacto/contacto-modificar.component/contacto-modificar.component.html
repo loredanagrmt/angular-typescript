@@ -1,41 +1,40 @@
 <style>
-  h3 {
+  h1{
+    font-size: 35px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 100;
   }
 
-  input {
-    width: 98.8%;
-    margin-bottom: 12px;
-    padding: 10px;
-    font-size: 16px;
-    justify-content: center;
+  h3, div{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    border-radius: 15px;
-    border-style: double;
-    /* margin:0 auto; */
-  }
+    font-weight: 100;
 
+  }
   button {
-    width: 100%;
-    margin-bottom: 12px;
-    padding: 10px;
-    font-size: 16px;
-    justify-content: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color:#89CFF0;
     color: white;
     border-color: white;
     border-radius: 15px;
-    margin:0 auto;
+    height: 30px;
+    width: 100px;
   }
 </style>
 
+<h3>Datos actuales</h3>
+<div>
+  <ol>
+    <!--  <li> {{ datosRecibidos().name }} </li>
+     <ul>
+      <li> {{datosRecibidos().phone}} </li>
+      <li> {{datosRecibidos().email}} </li>
+     </ul> -->
+  </ol>
+</div>
+
 <h3>Completa los siguientes datos</h3>
 
-
 <div>
-  <input type="text" class="form-control" placeholder="Nombre" [value]="name()" (input)="name.set(txtName.value)"
+  <!-- <input type="text" class="form-control" placeholder="Nombre" [value]="name()" (input)="name.set(txtName.value)"
     #txtName>
 
   <input type="number" class="form-control" placeholder="Teléfono" [value]="phone()"
@@ -43,8 +42,7 @@
 
   <input type="email" class="form-control" placeholder="Email" [value]="email()" (input)="email.set(txtEmail.value)"
     #txtEmail>
-
+ -->
   <button (click)="addContacto()">
-    Agregar
-  </button>
+    Modificar</button>
 </div>
