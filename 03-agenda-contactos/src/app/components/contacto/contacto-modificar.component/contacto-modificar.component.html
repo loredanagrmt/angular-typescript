@@ -1,47 +1,80 @@
 <style>
-  h1{
-    font-size: 35px;
+  h3 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 100;
   }
 
-  h3, div{
+  ol {
+    font-size: 15px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 100;
-
+    padding-left: 18px;
   }
+
+  input {
+    width: 98.8%;
+    margin-bottom: 12px;
+    padding: 10px;
+    font-size: 16px;
+    justify-content: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 15px;
+    border-style: double;
+  }
+
   button {
-    background-color:#89CFF0;
+    width: 100%;
+    margin-bottom: 12px;
+    padding: 10px;
+    font-size: 16px;
+    justify-content: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #89CFF0;
     color: white;
     border-color: white;
     border-radius: 15px;
-    height: 30px;
-    width: 100px;
+    margin: 0 auto;
+  }
+
+  /* para que no cambie de color al click (por bootstrap / focus) */
+  button:hover,
+  button:active,
+  button:focus,
+  button:focus-visible {
+    background-color: #89CFF0;
+    color: white;
+    border-color: white;
+    outline: none;
+    box-shadow: none;
   }
 </style>
 
 <h3>Datos actuales</h3>
 <div>
   <ol>
-    <!--  <li> {{ datosRecibidos().name }} </li>
-     <ul>
-      <li> {{datosRecibidos().phone}} </li>
-      <li> {{datosRecibidos().email}} </li>
-     </ul> -->
+    <li><strong>Nombre:</strong> {{ nombreModi() }}</li>
+    <li><strong>Teléfono:</strong> {{ phoneModi() }}</li>
+    <li><strong>Email:</strong> {{ emailModi() }}</li>
   </ol>
 </div>
 
-<h3>Completa los siguientes datos</h3>
+<h3>Editar datos</h3>
 
 <div>
-  <!-- <input type="text" class="form-control" placeholder="Nombre" [value]="name()" (input)="name.set(txtName.value)"
-    #txtName>
+  <input type="text" class="form-control" placeholder="Nombre" [value]="nombreModi()"
+    (input)="nombreModi.set(txtNombre.value)" #txtNombre />
 
-  <input type="number" class="form-control" placeholder="Teléfono" [value]="phone()"
-    (input)="phone.set(+txtPhone.value)" #txtPhone>
+  <input type="number" class="form-control" placeholder="Teléfono" [value]="phoneModi()"
+    (input)="phoneModi.set(+txtPhone.value)" #txtPhone />
 
-  <input type="email" class="form-control" placeholder="Email" [value]="email()" (input)="email.set(txtEmail.value)"
-    #txtEmail>
- -->
+  <input type="email" class="form-control" placeholder="Email" [value]="emailModi()"
+    (input)="emailModi.set(txtEmail.value)" #txtEmail />
 
+  <button>
+    Guardar
+  </button>
+
+  <!-- <button (click)="guardarCambios()">
+    Guardar
+  </button> -->
 </div>
