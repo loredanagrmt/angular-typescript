@@ -1,25 +1,35 @@
 import { ChangeDetectionStrategy, Component, input, output, signal } from '@angular/core';
 import { Contacto } from '../../../interfaces/contacto.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'contacto-contacto-add',
   imports: [],
   templateUrl: './contacto-add.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-
 })
 export class ContactoAddComponent {
 
   contactos = input<Contacto[]>([]);
 
-  name = signal('')
-  phone = signal(0)
-  email = signal('')
+  name = signal('');
+  phone = signal(0);
+  email = signal('');
 
-  newContacto = output<Contacto>()
+  newContacto = output<Contacto>();
+
+  constructor(private router: Router) { }
 
   addContacto() {
     if (!this.name() || !this.phone() || this.phone() <= 0 || !this.email()) {
+      const emailError = document.getElementById('emailError') as HTMLElement;
+      emailError.style.display = 'block';
+      emailError.textContent = 'Complete todos los datos antes de guardar';
+
+      setTimeout(() => {
+        emailError.style.display = 'none';
+      }, 3000);
+
       return;
     }
 
@@ -30,16 +40,23 @@ export class ContactoAddComponent {
       email: this.email(),
     };
 
-    /* this.Contactos.update((list)=> [... list, newContacto]); */
-    this.newContacto.emit(newContacto)
+    this.newContacto.emit(newContacto);
     this.resetFields();
 
+    const contactoNuevo = document.getElementById('contactoNuevo') as HTMLElement;
+    contactoNuevo.style.display = 'block';
+    contactoNuevo.textContent = 'El contacto ha sido añadido correctamente';
+
+
+    setTimeout(() => {
+      contactoNuevo.style.display = 'none';
+      this.router.navigateByUrl('/');
+    }, 1200);
   }
 
   resetFields() {
-    this.name.set(''),
-      this.phone.set(0),
-      this.email.set('')
+    this.name.set('');
+    this.phone.set(0);
+    this.email.set('');
   }
-
 }

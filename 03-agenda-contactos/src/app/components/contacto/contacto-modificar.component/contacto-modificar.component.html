@@ -36,7 +36,6 @@
     margin: 0 auto;
   }
 
-  /* para que no cambie de color al click (por bootstrap / focus) */
   button:hover,
   button:active,
   button:focus,
@@ -47,20 +46,19 @@
     outline: none;
     box-shadow: none;
   }
+
+  span{
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   font-size: 15px;
+  }
 </style>
 
-<h3>Datos actuales</h3>
-<div>
-  <ol>
-    <li><strong>Nombre:</strong> {{ nombreModi() }}</li>
-    <li><strong>Teléfono:</strong> {{ phoneModi() }}</li>
-    <li><strong>Email:</strong> {{ emailModi() }}</li>
-  </ol>
-</div>
+
 
 <h3>Editar datos</h3>
 
 <div>
+
   <input type="text" class="form-control" placeholder="Nombre" [value]="nombreModi()"
     (input)="nombreModi.set(txtNombre.value)" #txtNombre />
 
@@ -70,11 +68,11 @@
   <input type="email" class="form-control" placeholder="Email" [value]="emailModi()"
     (input)="emailModi.set(txtEmail.value)" #txtEmail />
 
-  <button>
-    Guardar
-  </button>
+<span id="emailError" style="color: red; display: none;"></span>
+<span id="datosAcualizados" style="color: #89CFF0; display: none;"></span>
 
-  <!-- <button (click)="guardarCambios()">
-    Guardar
-  </button> -->
+<button (click)="guardarCambios()">
+  Guardar
+</button>
+
 </div>

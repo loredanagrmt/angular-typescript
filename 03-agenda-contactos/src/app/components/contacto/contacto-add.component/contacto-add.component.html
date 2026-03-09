@@ -29,10 +29,15 @@
     border-radius: 15px;
     margin:0 auto;
   }
+
+   span{
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   font-size: 15px;
+  }
+
 </style>
 
 <h3>Completa los siguientes datos</h3>
-
 
 <div>
   <input type="text" class="form-control" placeholder="Nombre" [value]="name()" (input)="name.set(txtName.value)"
@@ -43,6 +48,9 @@
 
   <input type="email" class="form-control" placeholder="Email" [value]="email()" (input)="email.set(txtEmail.value)"
     #txtEmail>
+
+    <span id="emailError" style="color: red; display: none;"></span>
+    <span id="contactoNuevo" style="color:  #89CFF0; display: none;"></span>
 
   <button (click)="addContacto()">
     Agregar

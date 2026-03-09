@@ -31,4 +31,10 @@ export class ContactoService {
     return this.contactos().find(i => i.id === buscarId);
   }
 
+  modificarContacto(contactoActualizado: Contacto) {
+    this.contactos.update(list =>
+      list.map(c => c.id === contactoActualizado.id ? contactoActualizado : c)
+    );
+  } 
+
 }
