@@ -7,5 +7,6 @@ export const environment = {
 
   //ApiKeys
   klipyKey: 'Q1rDTzK4SIGNRrLXW8xfRgZiBvjDqAy6Vveg1AFUumeYor4QcDukeaM74Fl6YZhR',
-  klipyURL: 'https://api.klipy.com/api/v1/Q1rDTzK4SIGNRrLXW8xfRgZiBvjDqAy6Vveg1AFUumeYor4QcDukeaM74Fl6YZhR/gifs/trending?per_page=25&customer_id=gifs&locale={locale}'
+  klipyUrl: 'https://api.klipy.com/api/v1'
+
 };
