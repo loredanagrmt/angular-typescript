@@ -6,7 +6,6 @@ import { environment } from '@environment/environment';
   selector: 'app-gifs-side-menu-header',
   imports: [],
   templateUrl: './side-menu-header.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GifsSideMenuHeader {
 

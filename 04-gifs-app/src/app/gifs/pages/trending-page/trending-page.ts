@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GifsList } from "../../components/gifs-list/gifs-list";
+import { GifsList } from '../../components/gifs-list/gifs-list';
 
 const imageUrls: string[] = [
   "https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg",
@@ -21,4 +21,6 @@ const imageUrls: string[] = [
   imports: [GifsList],
   templateUrl: './trending-page.html',
 })
-export default class TrendingPage { }
+export default class TrendingPage {
+  gifs = imageUrls;
+}

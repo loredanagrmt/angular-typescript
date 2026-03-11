@@ -12,7 +12,6 @@ interface MenuOption {
   selector: 'gifs-side-menu-options',
   imports: [RouterLink, RouterLinkActive],
   templateUrl: './side-menu-options.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GifsSideMenuOptions {
 
