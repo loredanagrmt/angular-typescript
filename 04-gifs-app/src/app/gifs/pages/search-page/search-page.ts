@@ -1,8 +1,15 @@
 import { Component } from '@angular/core';
+import { GifsList } from '../../components/gifs-list/gifs-list';
 
 @Component({
   selector: 'app-search-page',
-  imports: [],
+  imports: [GifsList],
   templateUrl: './search-page.html',
 })
-export default class SearchPage { }
+export default class SearchPage {
+
+onSearch(query: string){
+  console.log({ query })
+}
+
+}
