@@ -4,6 +4,7 @@ import { environment } from '@environment/environment';
 import { KlipyResponse } from '../interface/klipy.interfaces';
 import { Gif } from '../interface/gif.inteface';
 import { GifMapper } from '../mapper/gif.mapper';
+import { map, tap } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class GifService {
@@ -32,6 +33,32 @@ export class GifService {
       console.log({ gifs })
 
     });
+
+  }
+
+  searchGifs(query: string) {
+    return this.http.get<KlipyResponse>(`${environment.klipyUrl}/Q1rDTzK4SIGNRrLXW8xfRgZiBvjDqAy6Vveg1AFUumeYor4QcDukeaM74Fl6YZhR/gifs/search`, {
+      params: {
+        api_key: environment.klipyKey,
+        limit: 20,
+        q: query,
+      }
+    })
+      .pipe(
+        map(({ data }) => data.data),
+        map((items) => GifMapper.mapKlipyItemsToGifArray(items))
+
+        //TODO: historial
+
+      );
+    /* .subscribe((resp) => {
+
+      const gifs = GifMapper.mapKlipyItemsToGifArray(resp.data.data);
+
+      console.log({ search: gifs });
+      return gifs;
+
+    }); */
 
   }
 
