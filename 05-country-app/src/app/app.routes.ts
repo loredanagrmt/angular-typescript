@@ -1,11 +1,10 @@
 import { Routes } from '@angular/router';
-import { HomePage } from '../shared/pages/home-page/home-page';
-
+import { HomePageComponent } from './shared/pages/home-page/home-page.component';
 
 export const routes: Routes = [
   {
     path: '',
-    component: HomePage,
+    component: HomePageComponent,
   },
 
   {
