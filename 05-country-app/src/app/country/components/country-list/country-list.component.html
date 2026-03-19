@@ -17,19 +17,45 @@
         <td>{{index + 1}}</td>
         <td>{{country.flag}}</td>
         <td>
-          <img [src]="country.flags.svg" [alt]="country.name" class="w-10" />
+          <img [src]="country.flagsvg" [alt]="country.name" class="w-10" />
         </td>
 
-        <td>{{country.name.common}}</td>
+        <td>{{country.name}}</td>
         <td>{{country.capital}}</td>
-        <td>{{country.population}}</td>
         <td>
-          <a class="link-primary cursor-pointer">Más infromación</a>
+          <span class="badge badge-secondary">
+            {{country.population |number}}
+          </span>
         </td>
+        <td>
+          <a [routerLink]="['/country/by', country.cca2]" class="link-primary cursor-pointer">Más información</a>
+        </td>
+
 
 
       </tr>
       }
+
+
+      <!--  -->
+      @if(countries().length== 0 && !isLoading()){
+      <tr>
+        <td colspan="8" class="text-center">
+          No se encontraron resultados
+        </td>
+      </tr>
+      }
+
+
+      <!--  -->
+      @if(isLoading()){
+      <tr>
+        <td colspan="8" class="text-center">
+          Buscando países
+        </td>
+      </tr>
+      }
+
 
     </tbody>
   </table>

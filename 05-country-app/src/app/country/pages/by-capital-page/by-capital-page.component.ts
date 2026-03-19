@@ -1,8 +1,10 @@
-import { Component, inject, signal } from '@angular/core';
-import { SearchInputComponent } from '../../components/search-input/search-input.component';
+import { Component, inject, resource, signal } from '@angular/core';
+import { rxResource } from '@angular/core/rxjs-interop';
+import { firstValueFrom, of } from 'rxjs';
 import { CountryListComponent } from '../../components/country-list/country-list.component';
+import { SearchInputComponent } from '../../components/search-input/search-input.component';
 import { CountryService } from '../../services/contry.service';
-import { RESTCountry } from '../../interfaces/rest-contries.interface';
+
 
 @Component({
   selector: 'app-by-capital-page',
@@ -12,22 +14,42 @@ import { RESTCountry } from '../../interfaces/rest-contries.interface';
 })
 export class ByCapitalPageComponent {
 
-countryService= inject(CountryService)
+  countryService = inject(CountryService)
+  query = signal('')
 
-isLoading=signal(false)
-isError=signal<string|null>(null)
-countries=signal<RESTCountry[]>([])
+  countryResource = rxResource({
+    request: () => ({ query: this.query() }),
+    loader: ({ request }) => {
+            if (!this.query()) return of([]);
 
-  onSearch(query: string) {
-if(this.isLoading()) return;
+      return this.countryService.searchByCapital(request.query)
 
-this.isLoading.set(true)
-this.isError.set(null)
+    }
+  })
 
-    this.countryService.searchByCapital(query).subscribe((countries) => {
-      this.isLoading.set(false)
-      this.countries.set(countries)
-      console.log(countries)
-    })
-  }
+  /*  isLoading = signal(false)
+   isError = signal<string | null>(null)
+   countries = signal<Country[]>([])
+
+   onSearch(query: string) {
+     if (this.isLoading()) return;
+
+     this.isLoading.set(true)
+     this.isError.set(null)
+
+     this.countryService.searchByCapital(query).subscribe({
+
+       next: (countries) => {
+         this.isLoading.set(true);
+         this.countries.set(countries)
+       },
+       error:(err)=>{
+         console.log(err)
+         this.isLoading.set(false)
+         this.countries.set([])
+         this.isError.set(`No se encontró un país con esa capital:  ${query}`)
+       }
+     })
+   } */
+
 }
