@@ -1,48 +1,46 @@
-<div class="max-w-4xl mx-10 mt-6">
-  <section>
-    <h1 class="text-3xl font-bold">{{ country().name }}</h1>
-    <h2 class="text-xl mt-2">Capital: {{ country().capital }}</h2>
-    <p class="mt-1">Población: {{ country().population | number }}</p>
+<section class="mx-10">
+  <h1 class="text-3xl">{{ country().name }}</h1>
+  <h2 class="text-xl font-thin">
+    Población {{ country().population | number }}
+  </h2>
+</section>
 
-    <img [src]="country().flagsvg" [alt]="country().name" class="w-32 mt-4 rounded shadow" />
-  </section>
+<section class="stats shadow mx-5">
+  <div class="stat place-items-center">
+    <div class="stat-title">Población</div>
+    <div class="stat-value">{{ country().population | number }}</div>
+    <div class="stat-desc">Desde {{ currentYear() }}</div>
+  </div>
 
-  <section class="stats shadow mt-8 w-full">
-    <div class="stat place-items-center">
-      <div class="stat-title">Población</div>
-      <div class="stat-value">{{ country().population | number }}</div>
-      <div class="stat-desc">Desde {{ currentYear() }}</div>
-    </div>
+  <div class="stat place-items-center">
+    <div class="stat-title">Nombre</div>
+    <div class="stat-value text-secondary">{{ country().name }}</div>
+    <div class="stat-desc text-secondary">{{ country().region }}</div>
+  </div>
 
-    <div class="stat place-items-center">
-      <div class="stat-title">Nombre</div>
-      <div class="stat-value text-secondary">{{ country().name }}</div>
-      <div class="stat-desc text-secondary">{{ country().region }}</div>
-    </div>
+  <div class="stat place-items-center">
+    <div class="stat-title">Sub Region</div>
+    <div class="stat-value">{{ country().subRegion }}</div>
+    <div class="stat-desc">{{ country().region }}</div>
+  </div>
 
-    <div class="stat place-items-center">
-      <div class="stat-title">Capital</div>
-      <div class="stat-value">{{ country().capital }}</div>
-    </div>
+  <div class="stat place-items-center">
+    <div class="stat-title">Bandera</div>
+    <div class="stat-value">{{ country().flag }}</div>
+    <div class="stat-desc">{{ country().subRegion }}</div>
+  </div>
+</section>
 
-    <div class="stat place-items-center">
-      <div class="stat-title">Sub región</div>
-      <div class="stat-value">{{ country().subRegion }}</div>
-      <div class="stat-desc">{{ country().region }}</div>
-    </div>
-
-
-  </section>
-
-  <figure class="diff aspect-[16/9]" tabindex="0">
-    <div class="diff-item-1" role="img" tabindex="0">
-      <img [alt]="country().name" [src]="country().flagsvg" />
-    </div>
-
-    <div class="diff-item-2" role="img">
-      <img [alt]="country().name" [src]="country().flagsvg" class="blur brightness-75" />
-    </div>
-
-    <div class="diff-resizer"></div>
-  </figure>
-</div>
+<section class="diff aspect-[16/9]">
+  <div class="diff-item-1">
+    <img [alt]="country().name" [src]="country().flagSvg" />
+  </div>
+  <div class="diff-item-2">
+    <img
+      class="blur brightness-75"
+      [alt]="country().name"
+      [src]="country().flagSvg"
+    />
+  </div>
+  <div class="diff-resizer"></div>
+</section>

@@ -1,5 +1,5 @@
 import type { Country } from "../interfaces/country.interface";
-import type { RESTCountry } from "../interfaces/rest-contries.interface";
+import type { RESTCountry } from "../interfaces/rest-countries.interface";
 
 export class CountryMapper{
 

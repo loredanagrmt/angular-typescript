@@ -4,9 +4,9 @@ import { inject, Injectable } from '@angular/core';
 import { RESTCountry } from '../interfaces/rest-countries.interface';
 import { map, Observable, catchError, throwError, delay, of, tap } from 'rxjs';
 import type { Country } from '../interfaces/country.interface';
-import { CountryMapper } from '../mapper/country.mapper';
-/* import { Region } from '../interfaces/region.type';
- */
+import { CountryMapper } from '../mappers/country.mapper';
+import { Region } from '../interfaces/region.type';
+
 const API_URL = 'https://restcountries.com/v3.1';
 
 @Injectable({
@@ -17,8 +17,8 @@ export class CountryService {
 
   private queryCacheCapital = new Map<string, Country[]>();
   private queryCacheCountry = new Map<string, Country[]>();
-/*   private queryCacheRegion = new Map<Region, Country[]>();
- */
+  private queryCacheRegion = new Map<Region, Country[]>();
+
   searchByCapital(query: string): Observable<Country[]> {
     query = query.toLowerCase();
 
@@ -61,7 +61,7 @@ export class CountryService {
     );
   }
 
- /*  searchByRegion(region: Region) {
+  searchByRegion(region: Region) {
     const url = `${API_URL}/region/${region}`;
 
     if (this.queryCacheCountry.has(region)) {
@@ -79,7 +79,7 @@ export class CountryService {
         );
       })
     );
-  } */
+  }
 
   searchCountryByAlphaCode(code: string) {
     const url = `${API_URL}/alpha/${code}`;
