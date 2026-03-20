@@ -18,6 +18,7 @@ import { CountryService } from '../../services/country.service';
   imports: [SearchInputComponent, CountryListComponent],
   templateUrl: './by-capital-page.component.html',
 })
+
 export class ByCapitalPageComponent {
   countryService = inject(CountryService);
 
