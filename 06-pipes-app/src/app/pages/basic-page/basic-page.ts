@@ -1,12 +1,16 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { LowerCasePipe } from '@angular/common';
+import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-basic-page',
-  imports: [
-    
-  ],
+  imports: [LowerCasePipe],
   templateUrl: './basic-page.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class BasicPage { }
+export default class BasicPage {
+
+nameLower= signal('loredana')
+  nameUpper = signal('LOREDANA')
+  fullname = signal('lORedAnA')
+
+
+ }
