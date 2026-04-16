@@ -1,7 +1,7 @@
-import { Routes } from "@angular/router";
-import { BasicPage } from "./pages/basic-page/basic-page";
-import { DinamicPage } from "./pages/dinamic-page/dinamic-page";
-import { SwitchesPage } from "./pages/switches-page/switches-page";
+import { Routes } from '@angular/router';
+import { BasicPageComponent } from './pages/basic-page/basic-page.component';
+import { DynamicPageComponent } from './pages/dynamic-page/dynamic-page.component';
+import { SwitchesPageComponent } from './pages/switches-page/switches-page.component';
 
 export const reactiveRoutes: Routes = [
   {
@@ -10,22 +10,22 @@ export const reactiveRoutes: Routes = [
       {
         path: 'basic',
         title: 'Básicos',
-        component: BasicPage,
+        component: BasicPageComponent,
       },
       {
         path: 'dynamic',
         title: 'Dinámicos',
-        component:DinamicPage,
+        component: DynamicPageComponent,
       },
       {
         path: 'switches',
         title: 'Switches',
-        component: SwitchesPage,
+        component: SwitchesPageComponent,
       },
       {
         path: '**',
-        redirectTo: 'basic'
-      }
-    ]
-  }
-]
+        redirectTo: 'basic',
+      },
+    ],
+  },
+];

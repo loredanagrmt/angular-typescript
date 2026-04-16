@@ -1,21 +1,20 @@
-import { Routes } from "@angular/router";
-import { RegisterPage } from "./pages/register-page/register-page";
+import { Routes } from '@angular/router';
+import { RegisterPageComponent } from './pages/register-page/register-page.component';
 
 export const authRoutes: Routes = [
   {
     path: '',
     children: [
       {
-        path: 'sing-up',
-        component: RegisterPage
+        path: 'sign-up',
+        component: RegisterPageComponent,
       },
       {
         path: '**',
-        redirectTo: 'sing-up',
-      }
-    ]
-  }
+        redirectTo: 'sign-up',
+      },
+    ],
+  },
 ];
 
 export default authRoutes;
-
