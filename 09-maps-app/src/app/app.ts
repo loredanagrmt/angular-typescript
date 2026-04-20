@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Navbar } from "./shared/components/navbar/navbar";
+import { Navbar } from "./pages/shared/components/navbar/navbar/navbar";
 
 @Component({
   selector: 'app-root',
@@ -9,5 +9,5 @@ import { Navbar } from "./shared/components/navbar/navbar";
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('09-maps-app');
+  protected readonly title = signal('maps-app');
 }
